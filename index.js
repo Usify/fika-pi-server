@@ -23,10 +23,10 @@ var router = express.Router();              // get an instance of the express Ro
 router.get('/', function(req, res) {
     res.json({ message: 'hooray! welcome to our api!' });  
 
-    const postData = querystring.stringify({"on":true});
+    const postData = querystring.stringify({"on":"true"});
 
     var options = {
-        host: 'http://192.168.5.132',
+        host: '192.168.5.132',
         port: 80,
         path: '/api/tyObM0Dd4TlMYGoqua7rFBcPNPQBVkJ5eZt8lfrM/lights/1/state',
         method: 'PUT',
