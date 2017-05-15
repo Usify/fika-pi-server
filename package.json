@@ -1,0 +1,14 @@
+{
+  "name": "usify",
+  "version": "1.0.0",
+  "description": "api to controll the hue",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.2"
+  }
+}
