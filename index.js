@@ -16,15 +16,16 @@ socket.on('connect', function() {
 var me = "Linköping";
 
 socket.on('message', function(message) {
-    console.log(message);
    if(message.sender!= me){
        console.log('försöker tända');
+       var parsedJson = JSON.parse(message);
+       console.log(parsedJson);
        lightOn(message.state);
    }
 });
 
 function lightOn(state){
-     const postData = JSON.stringify({ "on": (state=='true')? true:false});
+     const postData = JSON.stringify({ "on": (state=='1')? true:false});
     console.log(postData);
     var options = {
         host: '192.168.6.140',
