@@ -27,7 +27,7 @@ socket.on('message', function(message) {
 });
 
 function lightOn(state){
-     const postData = JSON.stringify({ "on": (state=='1')? true:false});
+     const postData = JSON.stringify({ "on": (state==1)? true:false});
     console.log(postData);
     var options = {
         host: '192.168.6.140',
