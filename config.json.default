@@ -1,0 +1,9 @@
+// COPY AND RENAME THIS FILE AND CHANGE VALUES BEFORE STARTING APPLICATION
+{
+	"id":"lkpg",
+	"hueBridgeApi": {
+	  "host": "192.168.6.140",
+	  "port": 80
+	},
+	"lightId": "tyObM0Dd4TlMYGoqua7rFBcPNPQBVkJ5eZt8lfrM"
+}
