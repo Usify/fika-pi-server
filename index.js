@@ -18,6 +18,7 @@ var me = "Linköping";
 socket.on('message', function(message) {
     console.log(message);
     var messageClean = unescape(message);
+    console.log(messageClean);
     var parsedJson = JSON.parse(messageClean);
    if(parsedJson.message.sender!= me){
        console.log('försöker tända');
