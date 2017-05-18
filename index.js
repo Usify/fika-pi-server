@@ -21,7 +21,7 @@ socket.on('message', function(message) {
     
    // var cleanMessage = message.replace(/&quot;/g, '"');
     //var parsedJson = JSON.parse(cleanMessage);
-   if(message.sender== me){
+   if(message.sender!= me){
       // console.log(parsedJson);
        lightOn(message.state);
 }
