@@ -6,13 +6,15 @@ var express = require('express'); // call express
 var app = express(); // define our app using express
 var bodyParser = require('body-parser');
 var http = require('http');
-var socketServer = http.createServer(handler);
 var querystring = require('querystring');
-var socketio = require("socket.io")(socketServer);
+var socket = require("socket.io-client")('http://fika-api-dev.eu-central-1.elasticbeanstalk.com/');
+socket.on('connect', function() {
+    console.log("DATA???");
+});
 
-function handler(req, res) {
-    console.log("HANDLER");
-}
+socket.on('message', function(message) {
+    console.log(message);
+});
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
@@ -22,11 +24,12 @@ app.use(bodyParser.json());
 var port = process.env.PORT || 8080; // set our port
 
 // SOCKET LISTENER FOR OUR API
+/*
 var socket = socketio("http://fika-api-dev.eu-central-1.elasticbeanstalk.com/fika-relay");
 socket.on('message', function(data) {
     //$('#messages').append($('<li>').text(JSON.stringify(data.message)));
     console.log(data);
-});
+});*/
 
 // ROUTES FOR OUR API
 // =============================================================================
