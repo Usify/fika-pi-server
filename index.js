@@ -31,7 +31,8 @@ function lightOn(state){
    
     var lightSettings = {
         "on": null,
-        "hue": null
+        "hue": null,
+        "bri": 255
     }
     if(state=='START') {
         lightSettings.on = true;
@@ -43,7 +44,11 @@ function lightOn(state){
     }
     else {
         lightSettings.on = false;
+        lightSettings.hue = 65280;
     }
+   apiCall(lightSettings);    
+}
+function apiCall(lightSettings){
     const postData = JSON.stringify(lightSettings);
     console.log(postData);
     var options = {
@@ -68,8 +73,7 @@ function lightOn(state){
     });
 
     req.write(postData);
-    req.end();
-}
+    req.end();}
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
