@@ -17,13 +17,13 @@ var me = "Linköping";
 
 socket.on('message', function(message) {
     console.log(message);
-    var messageClean = unescape(message);
+    var messageClean = unescape(message.message);
     console.log(messageClean);
     var parsedJson = JSON.parse(messageClean);
-   if(parsedJson.message.sender!= me){
+   if(parsedJson.sender!= me){
        console.log('försöker tända');
        console.log(parsedJson);
-       lightOn(parsedJson.message.state);
+       lightOn(parsedJson.state);
    }
 });
 
