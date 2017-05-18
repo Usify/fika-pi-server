@@ -16,11 +16,11 @@ socket.on('connect', function() {
 var me = "Linköping";
 
 socket.on('message', function(message) {
-   if(message.sender!= me){
+    var parsedJson = JSON.parse(message);
+   if(parsedJson.sender!= me){
        console.log('försöker tända');
-       var parsedJson = JSON.parse(message);
        console.log(parsedJson);
-       lightOn(message.state);
+       lightOn(parsedJson);
    }
 });
 
