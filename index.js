@@ -18,7 +18,8 @@ var me = config.id;
 
 socket.on('message', function(message) {
     console.log(message);
-    var parsedJson = JSON.parse(message);
+    var cleanMessage = message.message.replace(/&quot;/g, '"');
+    var parsedJson = JSON.parse(cleanMessage);
    if(parsedJson.sender!= me){
        console.log(parsedJson);
        lightOn(parsedJson.state);
