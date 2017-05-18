@@ -27,6 +27,7 @@ socket.on('message', function(message) {
 });
 
 function lightOn(state){
+    console.log(state);
      const postData = JSON.stringify({ "on": (state=='START')? true:false});
     console.log(postData);
     var options = {
