@@ -4,7 +4,7 @@
 // call the packages we need
 var express = require('express'); // call express
 var app = express(); // define our app using express
-var config = require('config.json');
+var config = require('./config.json');
 var bodyParser = require('body-parser');
 var http = require('http');
 var querystring = require('querystring');
