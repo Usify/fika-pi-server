@@ -4,6 +4,7 @@
 // call the packages we need
 var express = require('express'); // call express
 var app = express(); // define our app using express
+var config = require('config.json');
 var bodyParser = require('body-parser');
 var http = require('http');
 var querystring = require('querystring');
@@ -13,7 +14,7 @@ socket.on('connect', function() {
 });
 
 // this is me
-var me = "Linköping";
+var me = config.id;
 
 socket.on('message', function(message) {
     console.log(message);
