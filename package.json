@@ -1,16 +1,17 @@
 {
-  "name": "usify",
-  "version": "1.0.0",
-  "description": "api to controll the hue",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "body-parser": "^1.17.1",
-    "express": "^4.15.2",
-    "querystring": "^0.2.0"
-  }
+    "name": "usify",
+    "version": "1.0.0",
+    "description": "api to controll the hue",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "body-parser": "^1.17.1",
+        "express": "^4.15.2",
+        "querystring": "^0.2.0",
+        "socketio": "1.0.0"
+    }
 }
