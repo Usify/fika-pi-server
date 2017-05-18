@@ -18,17 +18,18 @@ var me = config.id;
 
 socket.on('message', function(message) {
     console.log(message);
+if(message.message){
     var cleanMessage = message.message.replace(/&quot;/g, '"');
     var parsedJson = JSON.parse(cleanMessage);
    if(parsedJson.sender== me){
        console.log(parsedJson);
        lightOn(parsedJson.state);
-   }
+}}
 });
 
 function lightOn(state){
     console.log(state);
-     const postData = JSON.stringify({ "on": (state=='START')? true:false});
+     const postData = JSON.stringify({ "on": (state=='START')? true:false, "hue":46920});
     console.log(postData);
     var options = {
         host: '192.168.6.140',
