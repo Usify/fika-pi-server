@@ -12,9 +12,18 @@ socket.on('connect', function() {
     console.log("Connected to FIKA-API");
 });
 
+// this is me
+var me = "Linkoping";
+
 socket.on('message', function(message) {
     console.log(message);
-    const postData = JSON.stringify({ "on": true });
+   if(message.sender!= me){
+       lightOn(message.state);
+   }
+});
+
+function lightOn(state){
+     const postData = JSON.stringify({ "on": state });
     console.log(postData);
     var options = {
         host: '192.168.6.140',
@@ -26,6 +35,7 @@ socket.on('message', function(message) {
             'Content-Length': Buffer.byteLength(postData)
         }
     };
+    
 
     var req = http.request(options, function(res) {
         console.log('STATUS: ' + res.statusCode);
@@ -38,7 +48,7 @@ socket.on('message', function(message) {
 
     req.write(postData);
     req.end();
-});
+}
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
