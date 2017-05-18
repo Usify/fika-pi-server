@@ -30,7 +30,7 @@ router.get('/on/:state', function(extreq, res) {
     const postData = JSON.stringify({"on": stateParam});
 	console.log(postData);
     var options = {
-        host: '192.168.5.132',
+        host: '192.168.6.140',
         port: 80,
         path: '/api/tyObM0Dd4TlMYGoqua7rFBcPNPQBVkJ5eZt8lfrM/lights/1/state',
         method: 'PUT',
