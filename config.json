@@ -1,1 +1,8 @@
-{"id":"lkpg"}
+{
+	"id":"sthlm",
+	"hueBridgeApi": {
+	  "host": "192.168.6.149",
+	  "port": 80
+	},
+	"lightId": "enslliRqaXMfKlmMMMmFoWpL5IbHcvVPRZjud55D"
+}

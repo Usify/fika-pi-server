@@ -14,7 +14,8 @@ socket.on('connect', function() {
 });
 
 // this is me
-var me = config.id;
+var me = config.id
+var { hueBridgeApi, lightId } = config;
 
 socket.on('message', function(message) {
     console.log("------->",message);
@@ -47,9 +48,9 @@ function lightOn(state){
     const postData = JSON.stringify(lightSettings);
     console.log(postData);
     var options = {
-        host: '192.168.6.140',
-        port: 80,
-        path: '/api/tyObM0Dd4TlMYGoqua7rFBcPNPQBVkJ5eZt8lfrM/lights/1/state',
+        host: hueBridgeApi.host,
+        port: hueBridgeApi.port,
+        path: `/api/${lightId}/lights/1/state`,
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
@@ -101,9 +102,9 @@ router.get('/on/:state', function(extreq, res) {
     const postData = JSON.stringify({ "on": stateParam });
     console.log(postData);
     var options = {
-        host: '192.168.6.140',
-        port: 80,
-        path: '/api/tyObM0Dd4TlMYGoqua7rFBcPNPQBVkJ5eZt8lfrM/lights/1/state',
+        host: hueBridgeApi.host,
+        port: hueBridgeApi.port,
+        path: `/api/${lightId}/lights/1/state`,
         method: 'PUT',
         headers: {
             'Content-Type': 'application/json',
