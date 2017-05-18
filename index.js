@@ -6,9 +6,9 @@ var express = require('express'); // call express
 var app = express(); // define our app using express
 var bodyParser = require('body-parser');
 var http = require('http');
-var app = http.createServer(handler);
+var socketServer = http.createServer(handler);
 var querystring = require('querystring');
-var socketio = require("socket.io")(app);
+var socketio = require("socket.io")(socketServer);
 
 function handler(req, res) {
     console.log("HANDLER");
