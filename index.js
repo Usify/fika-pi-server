@@ -13,11 +13,12 @@ socket.on('connect', function() {
 });
 
 // this is me
-var me = "Linkoping";
+var me = "Linköping";
 
 socket.on('message', function(message) {
     console.log(message);
    if(message.sender!= me){
+       console.log('försöker tända');
        lightOn(message.state);
    }
 });
