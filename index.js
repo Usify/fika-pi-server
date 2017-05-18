@@ -44,8 +44,12 @@ function lightOn(state){
         lightSettings.hue = 25500;
     }
     else {
-        lightSettings.on = false;
+        lightSettings.on = true;
         lightSettings.hue = 65280;
+       setTimeout(function(){
+           lightSettings.on= false;
+           apiCall(lightSettings);
+       },5000) 
     }
    apiCall(lightSettings);    
 }
