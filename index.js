@@ -9,11 +9,35 @@ var http = require('http');
 var querystring = require('querystring');
 var socket = require("socket.io-client")('http://fika-api-dev.eu-central-1.elasticbeanstalk.com/');
 socket.on('connect', function() {
-    console.log("DATA???");
+    console.log("Connected to FIKA-API");
 });
 
 socket.on('message', function(message) {
     console.log(message);
+    const postData = JSON.stringify({ "on": true });
+    console.log(postData);
+    var options = {
+        host: '192.168.6.140',
+        port: 80,
+        path: '/api/tyObM0Dd4TlMYGoqua7rFBcPNPQBVkJ5eZt8lfrM/lights/1/state',
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            'Content-Length': Buffer.byteLength(postData)
+        }
+    };
+
+    var req = http.request(options, function(res) {
+        console.log('STATUS: ' + res.statusCode);
+        console.log('HEADERS: ' + JSON.stringify(res.headers));
+        res.setEncoding('utf8');
+        res.on('data', function(chunk) {
+            console.log('LAMP REQUEST BODY: ' + chunk);
+        });
+    });
+
+    req.write(postData);
+    req.end();
 });
 
 // configure app to use bodyParser()
